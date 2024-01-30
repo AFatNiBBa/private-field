@@ -1,0 +1,34 @@
+{
+  "name": "private-field",
+  "version": "1.0.0",
+  "description": "Allows you to define native private fields on arbitrary objects",
+  "author": "AFatNiBBa",
+  "license": "ISC",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.umd.js",
+    "import": "./dist/index.mjs",
+    "types": "./dist/index.d.ts"
+  },
+  "scripts": {
+    "build": "vite build",
+    "save": "npm run build && npm publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.0",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AFatNiBBa/private-field.git"
+  },
+  "keywords": [
+    "define",
+    "private",
+    "hack",
+    "field",
+    "property",
+    "WeakMap"
+  ]
+}
