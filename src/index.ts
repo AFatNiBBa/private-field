@@ -1,5 +1,7 @@
 
-import { createPrivateField as createPrivateFieldImpl } from "./create";
+import { Identity, createPrivateField as createPrivateFieldImpl } from "./create";
+
+export { Identity };
 
 /** Completely typed version of {@link createPrivateFieldImpl} */
 export const createPrivateField = createPrivateFieldImpl as typeof createPrivateFieldImpl & {

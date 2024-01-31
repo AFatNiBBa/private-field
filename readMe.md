@@ -4,6 +4,22 @@ Allows you to define native private fields on arbitrary objects
 
 ## `createPrivateField()`
 Crates a class with some static methods that allow you to define a private field on anything
+
+### Static methods
+
+#### `has()`
+Tells whether the private field is defined in the provided object
+
+#### `get()`
+Gets the value of the private field in the provided object
+
+#### `set()`
+Sets the value of the private field in the provided object
+
+#### `define()`
+Defines the private field on the provided object
+
+### Usage
 ```ts
 const field = createPrivateField(12);
 const obj = {};
@@ -50,4 +66,22 @@ createPrivateField(1);                    // The field type is `number`
 createPrivateField(1 as const);           // The field type is `1`
 createPrivateField("string");             // The field type is `string`
 createPrivateField<boolean>();            // The field type is `boolean | undefined` since I didn't pass the initial value
+```
+
+## `Identity`
+Utility class that returns whatever has been passed as the first argument of its constructor.
+You can use it to define your own attached private properties
+```js
+class AttachedFields extends Identity {
+    #field1;
+    #field2;
+    #field3;
+    // ...
+
+    // Methods or accessors that can access those private fields
+}
+
+const obj = {};
+const out = new AttachedFields(obj);      // Define the private fields on the object, the constructor returns the exact same object you passed
+console.log(obj === out);                 // → true
 ```
