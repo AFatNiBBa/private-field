@@ -71,17 +71,17 @@ createPrivateField<boolean>();            // The field type is `boolean | undefi
 ## `Identity`
 Utility class that returns whatever has been passed as the first argument of its constructor.
 You can use it to define your own attached private properties
-```js
+```ts
 class AttachedFields extends Identity {
-    #field1;
-    #field2;
-    #field3;
+    #field1 = 1;
+    #field2 = 2;
+    #field3 = 3;
     // ...
 
     // Methods or accessors that can access those private fields
 }
 
 const obj = {};
-const out = new AttachedFields(obj);      // Define the private fields on the object, the constructor returns the exact same object you passed
-console.log(obj === out);                 // → true
+AttachedFields.define(obj);               // The `define()` static method is on the base class
+console.log(obj);                         // → { #field1: 1, #field2: 2, #field3: 3 }
 ```

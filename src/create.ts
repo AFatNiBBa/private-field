@@ -1,6 +1,14 @@
 
 /** Utility class that returns whatever has been passed as the first argument of its constructor */
-export class Identity { constructor(obj: object) { return obj; } }
+export class Identity {
+    constructor(obj: object) { return obj; }
+
+    /**
+     * Calls the current constructor on the provided object and types it correctly
+     * @param obj The object on which to call the constructor
+     */
+    static define<T extends object>(obj: T) { return new this(obj) as T; }
+}
 
 /**
  * Creates a new JavaScript private field which can be attached to any object and will only be accessible through the methods provided by the return type of this function.
@@ -23,7 +31,7 @@ export function createPrivateField<V>(v: V) {
          * Gets the value of the private field in the provided object
          * @param obj The object from which to get the value of the private field
          */
-		static get(obj: any) { return (obj as Self).#value; }
+		static get(obj: object) { return (obj as Self).#value; }
 
         /**
          * Sets the value of the private field in the provided object
@@ -31,12 +39,6 @@ export function createPrivateField<V>(v: V) {
          * @param v The new value for the private field
          * @returns The same thing that's inside {@link v}
          */
-		static set<T extends V>(obj: any, v: T) { return (obj as Self).#value = v; }
-
-        /**
-         * Defines the private field on the provided object
-         * @param obj The object on which to define the private field
-         */
-		static define<T extends object>(obj: T) { return new this(obj) as T; }
+		static set<T extends V>(obj: object, v: T) { return (obj as Self).#value = v; }
 	}
 }

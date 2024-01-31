@@ -1,6 +1,6 @@
 {
   "name": "private-field",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Allows you to define native private fields on arbitrary objects",
   "author": "AFatNiBBa",
   "license": "ISC",
