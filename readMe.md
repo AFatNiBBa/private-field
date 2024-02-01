@@ -3,7 +3,7 @@
 Allows you to define native private fields on arbitrary objects
 
 ## `createPrivateField()`
-Crates a class with some static methods that allow you to define a private field on anything
+Creates a class with some static methods that allow you to define a private field on anything
 
 ### Static methods
 
