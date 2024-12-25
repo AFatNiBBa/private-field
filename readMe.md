@@ -85,3 +85,5 @@ const obj = {};
 AttachedFields.define(obj);               // The `define()` static method is on the base class
 console.log(obj);                         // → { #field1: 1, #field2: 2, #field3: 3 }
 ```
+This is useful for debugging purposes, since every field created through `createPrivateField()` will have the same name (`#value`)
+> You can access private fields through the DevTools AS LONG as the field you're trying to access has no homonyms
